@@ -20,3 +20,14 @@ class Bill:
               f"Consultation Fee : {self.consultation_fee}\n"
               f"Medicine Fee : {self.medicine_fee}\n"
               f"Room Fee : {self.room_fee}")
+
+    @staticmethod
+    def from_text(line):
+        data = line.strip().split(",")
+        return Bill(
+            bill_id=data[0],
+            patient_id=data[1],
+            consultation_fee=data[2],
+            medicine_fee=data[3],
+            room_fee=data[4]
+        )
