@@ -7,7 +7,6 @@ class DoctorRepository:
         ## Project folder Path
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.file_path = os.path.join(base_dir,"data","doctor.txt")
-        self.save_all()
 
     def find_all(self):
         doctors = []
@@ -33,6 +32,7 @@ class DoctorRepository:
 
         doctors = self.find_all()
         doctors.append(doctor)
+        self.save_all(doctors)
 
     def save_all(self,doctors):
         with open(self.file_path,"w") as file:
