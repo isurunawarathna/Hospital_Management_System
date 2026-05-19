@@ -20,6 +20,17 @@ class PatientRepository:
                     patients.append(Patient.from_text(line))
         return patients
 
+    def find_by_id(self,patient_id) -> Patient:
+        patients = self.find_all()
+
+        for patient in patients:
+            if patient_id == patient["person_id"]:
+                return patient
+
+        return None
+
+
+
     def add(self,patient):
 
         patients = self.find_all()
