@@ -7,7 +7,6 @@ class PatientRepository:
         ## Project folder Path
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.file_path = os.path.join(base_dir,"data","patient.txt")
-        self.save_all()
 
     def find_all(self):
         patients = []
@@ -20,21 +19,19 @@ class PatientRepository:
                     patients.append(Patient.from_text(line))
         return patients
 
-    def find_by_id(self,patient_id) -> Patient:
+    def find_by_id(self,patient_id):
         patients = self.find_all()
 
         for patient in patients:
             if patient_id == patient["person_id"]:
                 return patient
-
         return None
-
-
 
     def add(self,patient):
 
         patients = self.find_all()
         patients.append(patient)
+        self.save_all(patients)
 
     def save_all(self,patients):
         with open(self.file_path,"w") as file:
