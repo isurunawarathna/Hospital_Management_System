@@ -16,3 +16,13 @@ class Doctor(Person):
     def to_text(self):
         return f"{self.person_id},{self.name},{self.age},{self.gender},{self.disease},{self.specialization}"
 
+    @staticmethod
+    def from_text(line):
+        data = line.strip().split(",")
+        return Doctor(
+            person_id=data[0],
+            name=data[1],
+            age=data[2],
+            gender=data[3],
+            specialization=data[4]
+        )
