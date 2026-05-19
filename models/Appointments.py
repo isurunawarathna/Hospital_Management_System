@@ -18,3 +18,14 @@ class Appointments:
               f"Doctor ID : {self.doctor_id}\n"
               f"Date : {self.date}\n"
               f"Time : {self.time}")
+
+    @staticmethod
+    def from_text(line):
+        data = line.strip().split(",")
+        return Appointments(
+            appointment_id=data[0],
+            patient_id=data[1],
+            doctor_id=data[2],
+            date=data[3],
+            time=data[4]
+        )
