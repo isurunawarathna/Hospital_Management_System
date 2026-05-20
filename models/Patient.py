@@ -24,6 +24,5 @@ class Patient(Person):
             age=data[2],
             gender=data[3],
             disease=data[4]
-
         )
 
