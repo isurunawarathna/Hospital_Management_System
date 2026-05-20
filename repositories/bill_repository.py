@@ -24,12 +24,12 @@ class BillRepository:
         bills = self.find_all()
 
         for bill in bills:
-            if bill_id == bill["bill_id"]:
+            if bill_id == bill.bill_id:
                 return bill
 
         return None
 
-    def add(self,bill):
+    def add_bill(self,bill):
 
         bills = self.find_all()
         bills.append(bill)
