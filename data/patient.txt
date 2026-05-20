@@ -1,0 +1,2 @@
+PO001,Isuru Nawarathna,20,Male,Wheezing
+PO002,Hasaru,22,Male,Gastic
