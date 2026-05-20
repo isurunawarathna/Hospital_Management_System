@@ -11,7 +11,6 @@ class PatientService:
 
         if existing_patient:
             print("Patient Id already Exits")
-            return
 
         self.patient_repository.add(patient)
         return "Patient Added Successfully"
@@ -19,5 +18,5 @@ class PatientService:
     def get_all_patient(self):
         return self.patient_repository.find_all()
 
-    def get_all_patient_by_id(self,patient_id):
+    def get_patient_by_id(self,patient_id):
         return self.patient_repository.find_by_id(patient_id)
