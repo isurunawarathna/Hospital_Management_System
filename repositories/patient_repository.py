@@ -23,7 +23,7 @@ class PatientRepository:
         patients = self.find_all()
 
         for patient in patients:
-            if patient_id == patient["person_id"]:
+            if patient_id == patient.person_id:
                 return patient
         return None
 
