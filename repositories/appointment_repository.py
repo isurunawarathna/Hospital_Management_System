@@ -24,12 +24,12 @@ class AppointmentRepository:
         appointments = self.find_all()
 
         for appointment in appointments:
-            if appointment_id == appointment["appointment_id"]:
+            if appointment_id == appointment.appointment_id:
                 return appointment
 
         return None
 
-    def add(self,appointment):
+    def add_appointment(self,appointment):
 
         appointments = self.find_all()
         appointments.append(appointment)
