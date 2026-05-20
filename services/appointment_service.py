@@ -27,12 +27,12 @@ class AppointmentService:
         if doctor is None:
             return "doctor does not exist"
 
-        self.appointment_repository.add(appointment)
+        self.appointment_repository.add_appointment(appointment)
         return "Appointment Added successfully"
 
     def get_all_appointment(self):
         return self.appointment_repository.find_all()
 
-    def get_all_patient_by_id(self, appointment_id):
+    def get_appointment_by_id(self, appointment_id):
         return self.appointment_repository.find_by_id(appointment_id)
 

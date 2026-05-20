@@ -1,6 +1,5 @@
 from repositories.doctor_repository import DoctorRepository
 
-
 class DoctorService:
 
     def __init__(self):
@@ -15,8 +14,8 @@ class DoctorService:
         self.doctor_repository.add(doctor)
         return "Doctor Added Successfully"
 
-    def get_all_patient(self):
+    def get_all_doctor(self):
         return self.doctor_repository.find_all()
 
-    def get_all_patient_by_id(self, doctor_id):
+    def get_doctor_by_id(self, doctor_id):
         return self.doctor_repository.find_by_id(doctor_id)
