@@ -4,9 +4,9 @@ from dataclasses import dataclass
 class Bill:
     bill_id : str
     patient_id : str
-    consultation_fee : str
-    medicine_fee : str
-    room_fee : str
+    consultation_fee : float
+    medicine_fee : float
+    room_fee : float
 
     def get_total(self):
         return self.consultation_fee + self.medicine_fee + self.room_fee

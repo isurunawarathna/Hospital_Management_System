@@ -187,9 +187,9 @@ while True:
         bill = Bill(
              bill_id=bill_id,
              patient_id=patient_id,
-             consultation_fee=consultation_fee,
-             medicine_fee=medicine_fee,
-             room_fee=room_fee
+             consultation_fee=float(consultation_fee),
+             medicine_fee=float(medicine_fee),
+             room_fee=float(medicine_fee)
         )
 
         bill_service.add_bill(bill)
