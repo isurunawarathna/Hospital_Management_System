@@ -1,6 +1,9 @@
 import os.path
 from models.Doctor import Doctor
 
+class DoctorServiceError(Exception):
+    pass
+
 class DoctorRepository:
 
     def __init__(self):

@@ -1,6 +1,9 @@
 import os.path
 from models.Appointments import Appointments
 
+class AppointmentServiceError(Exception):
+    pass
+
 class AppointmentRepository:
 
     def __init__(self):

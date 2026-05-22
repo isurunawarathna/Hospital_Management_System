@@ -1,6 +1,9 @@
 import os.path
 from models.Bill import Bill
 
+class BillServiceError(Exception):
+    pass
+
 class BillRepository:
 
     def __init__(self):
