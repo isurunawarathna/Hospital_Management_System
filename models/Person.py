@@ -1,12 +1,11 @@
 from abc import ABC,abstractmethod
-from dataclasses import dataclass
+from pydantic import BaseModel, Field
 
-@dataclass
-class Person(ABC):
-    person_id : str
-    name : str
-    age : int
-    gender : str
+class Person(BaseModel,ABC):
+    person_id : str = Field(...,max_length=10,min_length=1,description="Person ID")
+    name : str = Field(...,max_length=100,min_length=1,description="Person Name")
+    age : int = Field(...,ge=10,description="Person Age")
+    gender : str = Field(...,max_length=10,min_length=4,description="Person Gender")
 
     def display_basic_info(self,person):
             print(f"ID : {self.person_id}\n"
