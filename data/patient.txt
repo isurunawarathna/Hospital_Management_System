@@ -1,2 +1,5 @@
 PO001,Isuru Nawarathna,20,Male,Wheezing
-PO002,Hasaru,22,Male,Gastic
+PO002,Hasaru,22,Gender.Male,Gastic
+PO003,Akash,23,Gender.Male,Phone Addiction
+PO004,Tharush,27,Male,Stress
+PO005,Ileesha,20,Female,Track
