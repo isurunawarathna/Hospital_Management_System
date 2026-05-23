@@ -1,13 +1,12 @@
-from dataclasses import dataclass
+from pydantic import BaseModel,Field
+from typing import Optional
 
-@dataclass
-class Appointments:
-
-    appointment_id : str
-    patient_id : str
-    doctor_id : str
-    date : str
-    time : str
+class Appointments(BaseModel):
+    appointment_id : str = Field(...,max_length=10,min_length=1,description="Appointment ID")
+    patient_id : str = Field(...,max_length=10,min_length=1,description="Patient ID")
+    doctor_id : str = Field(...,max_length=10,min_length=1,description="Doctor ID")
+    date : str = Field(...,max_length=20,description="Appointment Date")
+    time : str = Field(...,max_length=20,description="Appointment Time")
 
     def to_text(self):
         return f"{self.appointment_id},{self.patient_id},{self.doctor_id},{self.date},{self.time}"
@@ -29,3 +28,10 @@ class Appointments:
             date=data[3],
             time=data[4]
         )
+
+class CreateAppointment(Appointments):
+    pass
+
+class AppointmentResponse(Appointments):
+    created_at : str
+    updated_at : Optional[str] = None

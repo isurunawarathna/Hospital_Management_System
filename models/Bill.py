@@ -1,12 +1,12 @@
-from dataclasses import dataclass
+from pydantic import BaseModel,Field
+from typing import Optional
 
-@dataclass
-class Bill:
-    bill_id : str
-    patient_id : str
-    consultation_fee : float
-    medicine_fee : float
-    room_fee : float
+class Bill(BaseModel):
+    bill_id : str = Field(...,max_length=10,min_length=1,description="Bill ID")
+    patient_id : str = Field(...,max_length=10,min_length=1,description="Patient ID")
+    consultation_fee : float = Field(...,le=10000,description="Doctor Consultation Fee")
+    medicine_fee : float = Field(...,le=10000,description="Doctor Consultation Fee")
+    room_fee : float = Field(...,le=10000,description="Doctor Consultation Fee")
 
     def get_total(self):
         return self.consultation_fee + self.medicine_fee + self.room_fee
@@ -31,3 +31,10 @@ class Bill:
             medicine_fee=data[3],
             room_fee=data[4]
         )
+
+class CreateBill(Bill):
+    pass
+
+class BillResponse(Bill):
+    created_at : str
+    updated_at : Optional[str] = None

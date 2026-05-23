@@ -1,9 +1,9 @@
 from models.Person import Person
-from dataclasses import dataclass
+from pydantic import Field
+from typing import Optional
 
-@dataclass
 class Doctor(Person):
-    specialization : str
+    specialization : str = Field(...,max_length=100,min_length=5,description="Doctor Specialization")
 
     def display(self):
         print(f"ID : {self.person_id}\n"
@@ -25,3 +25,10 @@ class Doctor(Person):
             gender=data[3],
             specialization=data[4]
         )
+
+class CreateDoctor(Doctor):
+    pass
+
+class DoctorResponse(Doctor):
+    created_at : str
+    updated_at : Optional[str] = None
