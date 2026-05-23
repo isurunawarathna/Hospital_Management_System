@@ -1,7 +1,8 @@
+from typing import Optional, List
 from repositories.appointment_repository import AppointmentRepository
 from repositories.doctor_repository import DoctorRepository
 from repositories.patient_repository import PatientRepository
-
+from models.Appointments import CreateAppointment, AppointmentResponse
 
 class AppointmentService:
 
@@ -36,3 +37,14 @@ class AppointmentService:
     def get_appointment_by_id(self, appointment_id):
         return self.appointment_repository.find_by_id(appointment_id)
 
+    def create_appointment(self, appointment : CreateAppointment) -> AppointmentResponse:
+        return self.appointment_repository.create_appointment(appointment=appointment)
+
+    def get_by_id(self, appointment_id : str) -> Optional[AppointmentResponse]:
+        return self.appointment_repository.get_by_id(appointment_id=appointment_id)
+
+    def get_all(self) -> List[AppointmentResponse]:
+        return self.appointment_repository.get_all()
+
+    def remove_appointment(self, appointment_id):
+        return self.appointment_repository.remove_appointment(appointment_id=appointment_id)

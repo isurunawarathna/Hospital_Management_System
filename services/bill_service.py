@@ -1,5 +1,7 @@
 from repositories.bill_repository import BillRepository
 from repositories.patient_repository import PatientRepository
+from models.Bill import CreateBill,BillResponse
+from typing import Optional, List
 
 class BillService:
 
@@ -27,4 +29,16 @@ class BillService:
 
     def get_bill_by_id(self, bill_id):
         return self.bill_repository.find_by_id(bill_id)
+
+    def create_bill(self, bill  : CreateBill) -> BillResponse:
+        return self.bill_repository.create_bill(bill=bill)
+
+    def get_by_id(self, bill_id : str) -> Optional[BillResponse]:
+        return self.bill_repository.get_by_id(bill_id=bill_id)
+
+    def get_all(self) -> List[BillResponse]:
+        return self.bill_repository.get_all()
+
+    def remove_bill(self, bill_id):
+        return self.bill_repository.remove_bill(bill_id=bill_id)
 
